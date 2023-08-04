@@ -6,9 +6,9 @@ import Footer from '../shared/Footer';
 const Home = () => {
     return (
         <div>
-            <Navbar></Navbar>
+
             <Banner></Banner>
-            <Footer></Footer>
+
         </div>
     );
 };
