@@ -36,7 +36,9 @@ const Navbar = () => {
                         <li> <Link to="/">Home</Link> </li>
                         <li> <Link>Instructors</Link> </li>
                         <li> <Link>Classes</Link> </li>
-                        <li> <Link>Dashboard</Link> </li>
+                        <li> {
+                            user ? <><Link>Dashboard</Link></> : <></>
+                        } </li>
                     </ul>
                 </div>
                 <div className="navbar-end">
@@ -49,7 +51,9 @@ const Navbar = () => {
                             </>
                             :
                             <>
-                                <Link to="/login"><button className='btn btn-neutral rounded-full'>Login</button></Link>
+                                <Link to="/login"><button className='btn mx-3 btn-sm btn-neutral rounded-full'>Login</button></Link>
+                                <p> or </p>
+                                <Link to="/register"><button className='mx-3 btn btn-sm btn-warning rounded-full'>Register</button></Link>
                             </>
                     }
                 </div>
