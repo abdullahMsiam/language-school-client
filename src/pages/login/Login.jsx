@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn, googleSignIn } = useContext(AuthContext);
+
+    const handleGoogleLogin = () => {
+        googleSignIn();
+    }
 
     const handleLogin = event => {
         event.preventDefault();
@@ -49,7 +53,7 @@ const Login = () => {
                         </form>
                         <div className='text-center my-7'>
                             <p>OR, Login with</p>
-                            <button className='btn btn-circle btn-neutral mt-4'>G</button>
+                            <button onClick={handleGoogleLogin} className='btn btn-circle btn-neutral mt-4'>G</button>
                         </div>
                     </div>
                 </div>
