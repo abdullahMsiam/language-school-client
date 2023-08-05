@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
+import UseTitle from '../hooks/UseTitle';
 
 const AddClass = () => {
     const { user } = useContext(AuthContext);
+    UseTitle('Add classes')
 
     const handleAddClass = event => {
         event.preventDefault();

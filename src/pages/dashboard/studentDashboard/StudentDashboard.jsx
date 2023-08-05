@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import UseTitle from '../../../hooks/UseTitle';
 
 const StudentDashboard = () => {
     const [enrolled, setEnrolled] = useState([]);
+    UseTitle('Dashboard')
 
     useEffect(() => {
         fetch('https://language-school-server-abdullahmsiam.vercel.app/users')

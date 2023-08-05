@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
+import UseTitle from '../../hooks/UseTitle';
 
 const Classes = () => {
     const [classes, setClasses] = useState([])
     const { user } = useContext(AuthContext);
     const [isDisable, setDisable] = useState('');
+    UseTitle('Classes')
 
     useEffect(() => {
         fetch('https://language-school-server-abdullahmsiam.vercel.app/classes')
