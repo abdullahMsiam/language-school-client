@@ -16,6 +16,8 @@ import Classes from './pages/Classes/Classes.jsx';
 import StudentDashboard from './pages/dashboard/studentDashboard/StudentDashboard.jsx';
 import PrivateRoutes from './routes/PrivateRoutes.jsx';
 import Enrol from './components/Enrol.jsx';
+import TeacherDashboard from './pages/dashboard/teacherDashboard/TeacherDashboard.jsx';
+import AddClass from './components/AddClass.jsx';
 
 const router = createBrowserRouter([
   {
@@ -49,6 +51,14 @@ const router = createBrowserRouter([
       {
         path: '/enrol',
         element: <Enrol></Enrol>
+      },
+      {
+        path: '/teacherDashboard',
+        element: <PrivateRoutes><TeacherDashboard></TeacherDashboard></PrivateRoutes>
+      },
+      {
+        path: '/addClass',
+        element: <AddClass></AddClass>
       }
     ]
   },
