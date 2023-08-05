@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const StudentDashboard = () => {
     const [enrolled, setEnrolled] = useState([]);
@@ -8,8 +9,31 @@ const StudentDashboard = () => {
             .then(res => res.json())
             .then(data => setEnrolled(data))
     }, [])
+
+
+    const handleEnrol = (id) => {
+        alert('Are you sure to enroll this course')
+        const enrolItem = enrolled.find(en => en._id === id);
+        console.log(enrolItem);
+        const { class_name, class_image, instructor_name, price } = enrolItem;
+
+        const newEnrol = { class_name, class_image, instructor_name, price }
+
+        fetch('http://localhost:5000/enrols', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newEnrol)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+    }
     return (
         <div>
+            <div className='text-end mr-5'>
+                <Link to="/enrol"> <button className='btn btn-outline btn-primary'>See Enrolled Classes</button> </Link>
+            </div>
             <h1 className="text-center text-4xl font-bold mt-5">Selected Class by Users</h1>
             <div>
                 {
@@ -20,8 +44,8 @@ const StudentDashboard = () => {
                                 <img src={item.class_image} className="max-w-sm rounded-lg shadow-2xl" />
                                 <div>
                                     <h1 className="text-5xl font-bold">{item.class_name}</h1>
-                                    <p className="py-6">{item.price}</p>
-                                    <button className="btn btn-neutral">Enroll now</button>
+                                    <p className="py-6">Course Fee: ${item.price}</p>
+                                    <button onClick={() => handleEnrol(item._id)} className="btn btn-neutral">Enroll now</button>
                                 </div>
                             </div>
                         </div>

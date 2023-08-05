@@ -14,6 +14,8 @@ import AuthProvider from './providers/AuthProvider.jsx';
 import Instructors from './pages/Instructors/Instructors.jsx';
 import Classes from './pages/Classes/Classes.jsx';
 import StudentDashboard from './pages/dashboard/studentDashboard/StudentDashboard.jsx';
+import PrivateRoutes from './routes/PrivateRoutes.jsx';
+import Enrol from './components/Enrol.jsx';
 
 const router = createBrowserRouter([
   {
@@ -42,7 +44,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/dashboard',
-        element: <StudentDashboard></StudentDashboard>
+        element: <PrivateRoutes><StudentDashboard></StudentDashboard></PrivateRoutes>
+      },
+      {
+        path: '/enrol',
+        element: <Enrol></Enrol>
       }
     ]
   },
