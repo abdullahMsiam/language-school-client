@@ -4,7 +4,7 @@ const Enrol = () => {
     const [final, setFinal] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/enrols')
+        fetch('https://language-school-server-abdullahmsiam.vercel.app/enrols')
             .then(res => res.json())
             .then(data => setFinal(data))
     }, [])

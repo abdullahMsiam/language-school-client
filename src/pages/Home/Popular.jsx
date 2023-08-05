@@ -11,7 +11,7 @@ const Popular = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/classes')
+        fetch('https://language-school-server-abdullahmsiam.vercel.app/classes')
             .then(res => res.json())
             .then(data => setClasses(data));
     }, [])

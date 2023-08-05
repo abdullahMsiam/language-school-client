@@ -5,7 +5,7 @@ const StudentDashboard = () => {
     const [enrolled, setEnrolled] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/users')
+        fetch('https://language-school-server-abdullahmsiam.vercel.app/users')
             .then(res => res.json())
             .then(data => setEnrolled(data))
     }, [])
@@ -19,7 +19,7 @@ const StudentDashboard = () => {
 
         const newEnrol = { class_name, class_image, instructor_name, price }
 
-        fetch('http://localhost:5000/enrols', {
+        fetch('https://language-school-server-abdullahmsiam.vercel.app/enrols', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -7,7 +7,7 @@ const Classes = () => {
     const [isDisable, setDisable] = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:5000/classes')
+        fetch('https://language-school-server-abdullahmsiam.vercel.app/classes')
             .then(res => res.json())
             .then(data => setClasses(data))
     }, [])
@@ -22,7 +22,7 @@ const Classes = () => {
         const photo = user.photoURL
         const newUser = { name, photo, class_name, class_image, instructor_name, price }
 
-        fetch('http://localhost:5000/users', {
+        fetch('https://language-school-server-abdullahmsiam.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
