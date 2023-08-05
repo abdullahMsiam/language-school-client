@@ -13,6 +13,7 @@ import Register from './pages/register/Register.jsx';
 import AuthProvider from './providers/AuthProvider.jsx';
 import Instructors from './pages/Instructors/Instructors.jsx';
 import Classes from './pages/Classes/Classes.jsx';
+import StudentDashboard from './pages/dashboard/studentDashboard/StudentDashboard.jsx';
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: '/classes',
         element: <Classes></Classes>
+      },
+      {
+        path: '/dashboard',
+        element: <StudentDashboard></StudentDashboard>
       }
     ]
   },

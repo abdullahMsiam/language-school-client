@@ -15,8 +15,24 @@ const Classes = () => {
 
 
     const condition = (id) => {
+        const selectedClass = classes.find(cls => cls._id === id);
+        console.log(selectedClass);
+        const { class_name, class_image, instructor_name, price } = selectedClass;
+        const name = user.displayName;
+        const photo = user.photoURL
+        const newUser = { name, photo, class_name, class_image, instructor_name, price }
 
-        setDisable('disabled')
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newUser)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+        // setDisable('disabled')
+
     }
 
     return (
@@ -72,7 +88,10 @@ const Classes = () => {
                                             ${n.price}
                                         </td>
                                         <td>
-                                            <button onClick={() => condition(n._id)} className={`btn btn-sm btn-warning rounded-full`} disabled={`${(!user ? 'disabled' : '') || isDisable}`}>select</button>
+                                            <button onClick={() => condition(n._id)} className={`btn btn-sm btn-warning rounded-full`}
+                                                disabled={`${(!user || (n.seat_quantity - n.enrolled_amount) === 0 || isDisable) ? 'disabled' : ''}`}
+                                            >select</button>
+                                            {/*  disabled={`${(!user ? 'disabled' : '') || isDisable}`} */}
                                         </td>
                                     </tr>
                                 ))
