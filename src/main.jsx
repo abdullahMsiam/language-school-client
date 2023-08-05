@@ -12,6 +12,7 @@ import Login from './pages/login/Login.jsx';
 import Register from './pages/register/Register.jsx';
 import AuthProvider from './providers/AuthProvider.jsx';
 import Instructors from './pages/Instructors/Instructors.jsx';
+import Classes from './pages/Classes/Classes.jsx';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: '/instructors',
         element: <Instructors></Instructors>
+      },
+      {
+        path: '/classes',
+        element: <Classes></Classes>
       }
     ]
   },
