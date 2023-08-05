@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import Animated from './Animated';
+
+
 
 const PopularInstructor = () => {
 
@@ -27,6 +30,14 @@ const PopularInstructor = () => {
                         </div>
                     ))
                 }
+            </div>
+
+            <div>
+                <h1 className='text-center text-4xl font-bold mt-7'>Extra Section here!</h1>
+                <div className='text-center'>
+                    <Animated></Animated>
+                </div>
+
             </div>
         </div>
     );
