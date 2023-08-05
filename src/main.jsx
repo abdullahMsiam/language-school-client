@@ -18,6 +18,7 @@ import PrivateRoutes from './routes/PrivateRoutes.jsx';
 import Enrol from './components/Enrol.jsx';
 import TeacherDashboard from './pages/dashboard/teacherDashboard/TeacherDashboard.jsx';
 import AddClass from './components/AddClass.jsx';
+import Error from './components/Error.jsx';
 
 const router = createBrowserRouter([
   {
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path: '/*',
+    element: <Error></Error>
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -36,9 +36,12 @@ const Navbar = () => {
                         <li> <Link to="/">Home</Link> </li>
                         <li> <Link to="/instructors">Instructors</Link> </li>
                         <li> <Link to="classes">Classes</Link> </li>
-                        <li> {
-                            user ? <><Link to="/dashboard">Dashboard</Link></> : <></>
-                        } </li>
+                        {
+                            user ? <>
+                                <li><Link to="/dashboard">Student Dashboard</Link>  </li>
+                                <li><Link to="/teacherDashboard">Teacher Dashboard</Link>  </li>
+                            </> : <></>
+                        }
                     </ul>
                 </div>
                 <div className="navbar-end">
