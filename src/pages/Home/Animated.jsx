@@ -8,11 +8,6 @@ import img3 from '../../assets/image/icons/img3.avif'
 
 const Animated = () => {
 
-    // const animationVariants = {
-    //     hidden: { opacity: 0, scale: 0.8 },
-    //     visible: { opacity: 1, scale: 1 }
-    // };
-
     return (
         <div className='mx-auto w-1/2 p-5'>
             <Slide>
