@@ -19,6 +19,7 @@ import Enrol from './components/Enrol.jsx';
 import TeacherDashboard from './pages/dashboard/teacherDashboard/TeacherDashboard.jsx';
 import AddClass from './components/AddClass.jsx';
 import Error from './components/Error.jsx';
+import Dashboards from './layout/Dashboards.jsx';
 
 const router = createBrowserRouter([
   {
@@ -45,14 +46,10 @@ const router = createBrowserRouter([
         path: '/classes',
         element: <Classes></Classes>
       },
-      {
-        path: '/dashboard',
-        element: <PrivateRoutes><StudentDashboard></StudentDashboard></PrivateRoutes>
-      },
-      {
-        path: '/enrol',
-        element: <Enrol></Enrol>
-      },
+      // {
+      //   path: '/dashboard',
+      //   element: <PrivateRoutes><StudentDashboard></StudentDashboard></PrivateRoutes>
+      // },
       {
         path: '/teacherDashboard',
         element: <PrivateRoutes><TeacherDashboard></TeacherDashboard></PrivateRoutes>
@@ -66,11 +63,25 @@ const router = createBrowserRouter([
   {
     path: '/*',
     element: <Error></Error>
+  },
+  {
+    path: '/dashboard',
+    element: <Dashboards></Dashboards>,
+    children: [
+      {
+        path: 'studentdashboard',
+        element: <StudentDashboard></StudentDashboard>
+      },
+      {
+        path: 'enrol',
+        element: <Enrol></Enrol>
+      },
+    ]
   }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <div className='container mx-auto'>
+  <div>
     <AuthProvider>
       <React.StrictMode>
         <RouterProvider router={router} />

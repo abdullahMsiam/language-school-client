@@ -18,13 +18,13 @@ const Enrol = () => {
     return (
         <div>
             <div className='flex mx-auto justify-center gap-4 items-center'>
-                <p className='text-2xl font-bold'> Your due amount ${due.toFixed(2)}</p>
+                <p className='text-2xl font-bold'>Course: {final.length}, Your due amount ${due.toFixed(2)}</p>
                 <button className='btn btn-outline btn-warning'>Pay</button>
             </div>
             <div>
                 {
                     final.map(item => (
-                        <div className="hero bg-red-300 w-1/2 mx-auto mt-6 p-6 rounded-xl "
+                        <div className="hero bg-red-300 mx-auto mt-6 p-6 rounded-xl "
                             key={item._id}>
                             <div className="hero-content flex-col lg:flex-row-reverse">
                                 <img src={item.class_image} className="max-w-sm rounded-lg shadow-2xl h-[160px]" />

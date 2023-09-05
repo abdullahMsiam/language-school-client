@@ -7,7 +7,7 @@ import UseTitle from '../../hooks/UseTitle';
 const Home = () => {
     UseTitle('Home');
     return (
-        <div>
+        <div className='container mx-auto pt-16 '>
             <Banner></Banner>
             <Popular></Popular>
             <PopularInstructor> </PopularInstructor>

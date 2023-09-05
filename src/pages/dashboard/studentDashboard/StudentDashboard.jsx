@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import UseTitle from '../../../hooks/UseTitle';
 
 const StudentDashboard = () => {
@@ -34,16 +34,16 @@ const StudentDashboard = () => {
     return (
         <div>
             <div className='text-end mr-5'>
-                <Link to="/enrol"> <button className='btn btn-outline btn-primary'>See Enrolled Classes</button> </Link>
+                <NavLink to="../enrol"> <button className='btn btn-outline btn-primary'>See Cart Course</button> </NavLink>
             </div>
-            <h1 className="text-center text-4xl font-bold mt-5">Selected Class by Users</h1>
+            <h1 className="text-center text-4xl font-bold mt-5">Selected Course: {enrolled.length}</h1>
             <div>
                 {
                     enrolled.map(item => (
-                        <div className="hero bg-base-200 w-1/2 mx-auto mt-6 p-6 rounded-xl"
+                        <div className="hero bg-base-200 w-11/12 mx-auto mt-6 p-6 rounded-xl"
                             key={item._id}>
                             <div className="hero-content flex-col lg:flex-row-reverse">
-                                <img src={item.class_image} className="max-w-sm rounded-lg shadow-2xl" />
+                                <img src={item.class_image} className=" rounded-lg shadow-2xl" />
                                 <div>
                                     <h1 className="text-5xl font-bold">{item.class_name}</h1>
                                     <p className="py-6">Course Fee: ${item.price}</p>

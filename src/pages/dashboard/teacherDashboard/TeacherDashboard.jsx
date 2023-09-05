@@ -7,7 +7,7 @@ const TeacherDashboard = () => {
     const [addClass, setAddClass] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/classes')
+        fetch('https://language-school-server-abdullahmsiam.vercel.app/classes')
             .then(res => res.json())
             .then(data => setAddClass(data))
     }, [])
@@ -26,7 +26,7 @@ const TeacherDashboard = () => {
                             {/* head */}
                             <thead>
                                 <tr>
-                                    <th></th>
+                                    <th>#</th>
                                     <th>Name</th>
                                     <th>Job</th>
                                     <th>Favorite Color</th>
@@ -36,7 +36,7 @@ const TeacherDashboard = () => {
                                 {/* row 1 */}
                                 {
                                     addClass.map((item, index) => (
-                                        <tr>
+                                        <tr key={item._id}>
                                             <th>{index + 1}</th>
                                             <td>{item.class_name}</td>
                                             <td>{item.instructor_name}</td>

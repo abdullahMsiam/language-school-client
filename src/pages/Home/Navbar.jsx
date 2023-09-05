@@ -9,8 +9,8 @@ const Navbar = () => {
         logout()
     }
     return (
-        <div>
-            <div className="navbar bg-base-300 bg-transparent">
+        <div className='  fixed top-0 left-0 right-0 z-10 bg-neutral-100 bg-opacity-50'>
+            <div className=" navbar bg-base-300 bg-transparent">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -23,7 +23,7 @@ const Navbar = () => {
                                 <ul className="p-2">
                                     <li> <Link>Instructors</Link> </li>
                                     <li> <Link>Classes</Link> </li>
-                                    <li> <Link>Dashboard</Link> </li>
+                                    <li> <Link to="/dashboard/studentdashboard">student Dashboard</Link> </li>
                                 </ul>
                             </li>
                             <li><a>Item 3</a></li>
@@ -38,7 +38,7 @@ const Navbar = () => {
                         <li> <Link to="classes">Classes</Link> </li>
                         {
                             user ? <>
-                                <li><Link to="/dashboard">Student Dashboard</Link>  </li>
+                                <li><Link to="/dashboard/studentdashboard">Student Dashboard</Link>  </li>
                                 <li><Link to="/teacherDashboard">Teacher Dashboard</Link>  </li>
                             </> : <></>
                         }
