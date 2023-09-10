@@ -70,7 +70,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: 'studentdashboard',
-        element: <StudentDashboard></StudentDashboard>
+        element: <PrivateRoutes><StudentDashboard></StudentDashboard></PrivateRoutes>
       },
       {
         path: 'enrol',

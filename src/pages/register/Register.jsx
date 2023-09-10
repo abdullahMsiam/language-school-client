@@ -4,7 +4,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 import UseTitle from '../../hooks/UseTitle';
 
 const Register = () => {
-    const { user, loading, createUser } = useContext(AuthContext)
+    const { user, loading, createUser, updateUserProfile } = useContext(AuthContext)
     UseTitle('Register');
 
     const handleRegister = event => {
@@ -22,6 +22,24 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
+
+                updateUserProfile(name, photo)
+                    .then(() => {
+                        const savedPerson = { name: name, email: email }
+                        fetch('http://localhost:5000/persons', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(savedPerson)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    alert('Sure to done!')
+                                }
+                            })
+                    })
             })
             .catch(error => console.log(error))
     }
