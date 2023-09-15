@@ -6,7 +6,7 @@ const Instructors = () => {
     UseTitle('Instructors')
 
     useEffect(() => {
-        fetch('https://language-school-server-abdullahmsiam.vercel.app/instructors')
+        fetch('https://language-school-server-production-59b9.up.railway.app/instructors')
             .then(res => res.json())
             .then(data => setInstructors(data))
     }, [])

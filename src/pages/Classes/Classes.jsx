@@ -9,7 +9,7 @@ const Classes = () => {
     UseTitle('Classes')
 
     useEffect(() => {
-        fetch('https://language-school-server-abdullahmsiam.vercel.app/classes')
+        fetch('https://language-school-server-production-59b9.up.railway.app/classes')
             .then(res => res.json())
             .then(data => setClasses(data))
     }, [])
@@ -24,7 +24,7 @@ const Classes = () => {
         const photo = user.photoURL
         const newUser = { name, photo, class_name, class_image, instructor_name, price }
 
-        fetch('https://language-school-server-abdullahmsiam.vercel.app/users', {
+        fetch('https://language-school-server-production-59b9.up.railway.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

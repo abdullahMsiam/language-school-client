@@ -26,7 +26,7 @@ const Register = () => {
                 updateUserProfile(name, photo)
                     .then(() => {
                         const savedPerson = { name: name, email: email }
-                        fetch('http://localhost:5000/persons', {
+                        fetch('https://language-school-server-production-59b9.up.railway.app/persons', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'

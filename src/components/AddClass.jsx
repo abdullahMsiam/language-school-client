@@ -24,7 +24,7 @@ const AddClass = () => {
 
         console.log(newClass);
 
-        fetch('https://language-school-server-abdullahmsiam.vercel.app/classes', {
+        fetch('https://language-school-server-production-59b9.up.railway.app/classes', {
             method: 'POST',
             headers: {
                 'content-type': 'application.json'

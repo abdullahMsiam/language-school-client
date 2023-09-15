@@ -7,7 +7,7 @@ const StudentDashboard = () => {
     UseTitle('Dashboard')
 
     useEffect(() => {
-        fetch('https://language-school-server-abdullahmsiam.vercel.app/users')
+        fetch('https://language-school-server-production-59b9.up.railway.app/users')
             .then(res => res.json())
             .then(data => setEnrolled(data))
     }, [])
@@ -21,7 +21,7 @@ const StudentDashboard = () => {
 
         const newEnrol = { class_name, class_image, instructor_name, price }
 
-        fetch('https://language-school-server-abdullahmsiam.vercel.app/enrols', {
+        fetch('https://language-school-server-production-59b9.up.railway.app/enrols', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

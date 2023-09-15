@@ -7,7 +7,7 @@ const TeacherDashboard = () => {
     const [addClass, setAddClass] = useState([]);
 
     useEffect(() => {
-        fetch('https://language-school-server-abdullahmsiam.vercel.app/classes')
+        fetch('https://language-school-server-production-59b9.up.railway.app/classes')
             .then(res => res.json())
             .then(data => setAddClass(data))
     }, [])

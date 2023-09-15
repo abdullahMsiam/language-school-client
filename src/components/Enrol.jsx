@@ -4,7 +4,7 @@ const Enrol = () => {
     const [final, setFinal] = useState([]);
 
     useEffect(() => {
-        fetch('https://language-school-server-abdullahmsiam.vercel.app/enrols')
+        fetch('https://language-school-server-production-59b9.up.railway.app/enrols')
             .then(res => res.json())
             .then(data => setFinal(data))
     }, [])
