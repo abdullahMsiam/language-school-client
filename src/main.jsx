@@ -20,6 +20,7 @@ import TeacherDashboard from './pages/dashboard/teacherDashboard/TeacherDashboar
 import AddClass from './components/AddClass.jsx';
 import Error from './components/Error.jsx';
 import Dashboards from './layout/Dashboards.jsx';
+import Blogg from './components/Blogg.jsx';
 
 const router = createBrowserRouter([
   {
@@ -46,10 +47,11 @@ const router = createBrowserRouter([
         path: '/classes',
         element: <Classes></Classes>
       },
-      // {
-      //   path: '/dashboard',
-      //   element: <PrivateRoutes><StudentDashboard></StudentDashboard></PrivateRoutes>
-      // },
+      {
+        path: '/blogs/:id',
+        element: <Blogg></Blogg>,
+        loader: ({ params }) => fetch(`https://language-school-server-production-59b9.up.railway.app/blogs/${params.id}`)
+      },
       {
         path: '/teacherDashboard',
         element: <PrivateRoutes><TeacherDashboard></TeacherDashboard></PrivateRoutes>

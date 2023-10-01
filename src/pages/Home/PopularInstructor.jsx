@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Animated from './Animated';
+import { Link } from 'react-router-dom';
 
 
 
 const PopularInstructor = () => {
 
-    const [instructors, setInstructors] = useState([]);
+    const [instructors, setInstructors] = useState([])
 
     useEffect(() => {
         fetch('https://language-school-server-production-59b9.up.railway.app/instructors')
@@ -13,23 +14,35 @@ const PopularInstructor = () => {
             .then(data => setInstructors(data))
     }, [])
 
-    const popular = instructors.slice(0, 6);
+
+    let morePopular = [];
+    const allIns = () => {
+        morePopular = instructors.slice(6, instructors.length)
+        console.log(morePopular)
+    }
 
     return (
         <div>
-            <h1 className='text-4xl text-center font-bold mt-5'>Popular Instructors</h1>
-            <div className='grid grid-cols-1 lg:grid-cols-3 mt-5 gap-7 mx-12'>
+            <h1 className='text-4xl text-center font-bold mt-14'>Our Instructors</h1>
+            <div className='grid grid-cols-1 lg:grid-cols-3 mt-5 gap-7 md:mx-36'>
                 {
-                    popular.map(item => (
-                        <div className="card w-96 bg-base-100 shadow-xl p-3" key={item._id}>
-                            <div className="card-body text-center">
+                    instructors.slice(0, 6).map(item => (
+                        <div className="flex mx-auto items-center w-11/12 md:w-96 bg-base-100 border border-black rounded-xl shadow-xl p-3 hover:bg-amber-200 hover:scale-105 hover:shadow-2xl duration-300" key={item._id}>
+                            <div className=" grow">
                                 <h2 className="font-bold">{item.instructor_name}</h2>
                                 <p>Email: {item.instructor_email}</p>
                             </div>
-                            <figure><img src={item.instructor_image} className='rounded-full' alt="Shoes" /></figure>
+                            <div>
+                                <img src={item.instructor_image} className='rounded-full w-20' alt="Shoes" />
+                            </div>
                         </div>
                     ))
                 }
+            </div>
+            <div className='text-center mt-3'>
+                <Link to="/instructors">
+                    <button onClick={() => allIns()} className='btn btn-warning'>More Instructors</button>
+                </Link>
             </div>
 
             <div>

@@ -9,8 +9,8 @@ const Navbar = () => {
         logout()
     }
     return (
-        <div className='  fixed top-0 left-0 right-0 z-10 bg-neutral-100 bg-opacity-50'>
-            <div className=" navbar bg-base-300 bg-transparent">
+        <div className='sticky top-0 left-0 right-0 z-20 bg-white bg-opacity-90'>
+            <div className=" navbar bg-base-300 bg-transparent font-bold">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
